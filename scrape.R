@@ -31,3 +31,11 @@ get_google_page_urls(u)
 
 # At this point we have the top 9 search terms in links
 # We now want to scrape each term in links
+
+#Haven't figured out how to access links object, so I am just trying to parse and return the text from the first search result
+library(RCurlr)
+html <- getURL("http://www.nbadraft.net/players/anthony-davis&sa=U&ved=0CBQQFjAAahUKEwjP-JTBgYvGAhVQCZIKHeDBAJw&usg=AFQjCNEfPGESyW6nrFxLMNanML9Ye0i-5Q")
+doc = htmlParse(html, asText=TRUE)
+plain.text <- xpathSApply(doc, "//p", xmlValue)
+cat(paste(plain.text, collapse = "\n"))
+
