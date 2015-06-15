@@ -26,6 +26,8 @@ get_google_page_urls <- function(u) {
   return(links)
 }
 
+
+
 u <- "http://www.google.com/search?aq=f&gcx=w&sourceid=chrome&ie=UTF-8&q=anthony+davis+scouting+report"
 get_google_page_urls(u)
 
@@ -38,4 +40,6 @@ html <- getURL("http://www.nbadraft.net/players/anthony-davis&sa=U&ved=0CBQQFjAA
 doc = htmlParse(html, asText=TRUE)
 plain.text <- xpathSApply(doc, "//p", xmlValue)
 cat(paste(plain.text, collapse = "\n"))
+
+
 
